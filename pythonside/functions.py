@@ -2,48 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from math import floor ,ceil
 
-def extractinfo(file,column_index, seperator=','):
-    
-    lines = open(file,'r')
-    data=[]
-    
-    for line in lines:
-        val=line.strip().split(seperator)[column_index]
-        data.append(float(val))
-        
-    return data
-        
-    
-    
-def malignant(file,column_index,seperator=","):
-    
-    if column_index==1:
-        return None
-    
-    lines = open(file,'r')
-    ans=[]
-    for line in lines:
-        val=line.strip().split(seperator)
-        if val[1]=="M":
-            ans.append(float(val[column_index]))
-            
-    return ans
-
-
-def benign(file,column_index,seperator=","):
-    
-    if column_index==1:
-        return None
-    
-    lines = open(file,'r')
-    ans=[]
-    for line in lines:
-        val=line.strip().split(seperator)
-        if val[1]=="B":
-            ans.append(float(val[column_index]))
-            
-    return ans
-
 def mean(x):
     return sum(x)/len(x)
 
@@ -82,6 +40,15 @@ def coff_range(x):
     
     return num/den
 
+def mean_dev(x):
+    ans=0
+    for i in x:
+        
+        ans+=abs(i-mean(x))
+        
+    return ans/len(x)
+
+
 def meanroot(x):
     ans=0
     
@@ -90,7 +57,7 @@ def meanroot(x):
         
     return ans
 
-def correlation(x, y):
+def correlation(x, y): #returns the slope of the regression line
     mean_x = np.mean(x)
     mean_y = np.mean(y)
 
@@ -106,7 +73,7 @@ def correlation(x, y):
     return corr
     
 
-def y_intercept(x,y):
+def y_intercept(x,y): # returns y intercept of the regression line
     y=mean(y)-correlation(x,y)*mean(x)
     print("The y intercept of the data is {}".format(y))
     return y
@@ -115,10 +82,10 @@ def central_moments(n,x):
     ans=0
     
     for i in x:
-        ans=ans+(x-mean(x))**(n)
+        ans=ans+(i-mean(x))**(n)
         
     return ans/len(x)
 
 
-x=[-10,-69,1,2]
-print(largest(x))
+a=[1,2,3,4,5,6,7,8,9]
+print(central_moments(2,a))
