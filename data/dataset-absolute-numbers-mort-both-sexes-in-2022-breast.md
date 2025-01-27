@@ -1,0 +1,13 @@
+### 2. Global Cancer Statistics (`dataset-absolute-numbers-inc-both-sexes-in-2022-world.csv`)
+- **Purpose**: Contains global cancer incidence data for 2022
+- **Columns**:
+  - `Label`: Cancer type
+  - `Cancer code`: Unique identifier for cancer type
+  - `Country code (ISO/UN)`: Numerical country code (900 = World)
+  - `Alpha‑3 code`: ISO 3166-1 alpha-3 (3 letter country codes: USA, CAN) country code (N.A. for world data)
+  - `Sex`: 0 = Both, 1 = Female, 2 = Male
+  - `Type`: Data type indicator
+  - `ASR (World)`: Age-Standardized Rate (World)
+  - `Crude rate`: Crude incidence rate
+  - `Cumulative risk`: Cumulative risk of cancer
+  - `Total`: Total number of cases
