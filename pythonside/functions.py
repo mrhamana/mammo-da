@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from math import floor ,ceil
+
 def extractinfo(file,column_index, seperator=','):
     
     lines = open(file,'r')
@@ -45,6 +47,14 @@ def benign(file,column_index,seperator=","):
 def mean(x):
     return sum(x)/len(x)
 
+def median(x):
+    n=len(x)
+    
+    if n %2 ==1:
+        return x[n//2]
+    else:
+        return (x[floor((n+1)/2)]+x[ceil((n+1)/2)])/2
+
 def meanroot(x):
     ans=0
     
@@ -83,3 +93,6 @@ def central_moments(n,x):
     return ans/len(x)
 
 
+x=[1,2,3,4,5,6,7]
+print(x)
+print(median(x))
