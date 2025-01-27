@@ -1,8 +1,8 @@
 import numpy as np
-import matplotlib.pylab as plt
-def extractinfo(column_index, seperator=','):
+import matplotlib.pyplot as plt
+def extractinfo(file,column_index, seperator=','):
     
-    lines = open("../data/wdbc.data",'r')
+    lines = open(file,'r')
     data=[]
     
     for line in lines:
@@ -13,12 +13,12 @@ def extractinfo(column_index, seperator=','):
         
     
     
-def malignant(column_index,seperator=","):
+def malignant(file,column_index,seperator=","):
     
     if column_index==1:
         return None
     
-    lines = open("../data/wdbc.data",'r')
+    lines = open(file,'r')
     ans=[]
     for line in lines:
         val=line.strip().split(seperator)
@@ -28,12 +28,12 @@ def malignant(column_index,seperator=","):
     return ans
 
 
-def benign(column_index,seperator=","):
+def benign(file,column_index,seperator=","):
     
     if column_index==1:
         return None
     
-    lines = open("../data/wdbc.data",'r')
+    lines = open(file,'r')
     ans=[]
     for line in lines:
         val=line.strip().split(seperator)
