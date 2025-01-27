@@ -2,18 +2,6 @@ from functions import frequency
 import extract_data as ed
 import matplotlib.pyplot as plt
 import numpy as np
+import graph as gh
 
-y = ed.extractinfo("../data/breast-cancer-cell-data.csv", 3 , ",")[1:]
-y=[float(i) for i in y]
-
-print(y)
-bin_edges, frequencies = frequency(y, groups=100)
-
-print(bin_edges,frequencies)
-plt.figure(figsize=(10, 10))
-plt.bar(bin_edges[:-1], frequencies, width=np.diff(bin_edges), align='edge', edgecolor='black')
-
-plt.xlabel('Group')
-plt.ylabel('Frequency')
-plt.title('Frequency Distribution of Grouped Data')
-plt.show()
+gh.histo_graph("../data/breast-cancer-cell-data.csv",30,3)
