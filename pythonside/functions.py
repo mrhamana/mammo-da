@@ -53,7 +53,8 @@ def median(x):
     if n %2 ==1:
         return x[n//2]
     else:
-        return (x[floor((n+1)/2)]+x[ceil((n+1)/2)])/2
+        return (x[floor((n-1)/2)]+x[ceil((n-1)/2)])/2
+    
 
 def meanroot(x):
     ans=0
@@ -93,6 +94,7 @@ def central_moments(n,x):
     return ans/len(x)
 
 
-x=[1,2,3,4,5,6,7]
+x=[1,2]
+x.sort()
 print(x)
 print(median(x))
