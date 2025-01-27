@@ -1,16 +1,14 @@
-import numpy as np
-import functions as f
+from functions import frequency
+import extract_data as ed
+import matplotlib.pyplot as plt
+
+y=ed.extractinfo('../data/breast-cancer-cell-data.csv',5,',')[1:]
 
 
-x=f.malignant("../data/data.csv",8,',')
-y=f.benign("../data/data.csv",8,',')
+y=[float(i) for i in y]
 
-print(len(x),len(y))
+freq=frequency(y)
 
-n=min(len(x),len(y))
+plt.hist(freq )
 
-x=x[:n]
-y=y[:n]
-
-f.plt.scatter(x,y)
-f.plt.show()
+plt.show()

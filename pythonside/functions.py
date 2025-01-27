@@ -107,5 +107,3 @@ def frequency(x):
     
     return ans
 
-a=[i for i in range(400)]
-print(frequency(a))

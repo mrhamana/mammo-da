@@ -5,7 +5,7 @@ def extractinfo(file,column_index, seperator=','):
     
     for line in lines:
         val=line.strip().split(seperator)[column_index]
-        data.append(float(val))
+        data.append(val)
         
     return data
         
