@@ -31,8 +31,7 @@ def largest(x):
             
     return biggest
 
-def range(x):
-    return largest(x)-smallest(x)
+
 
 def coff_range(x):
     num=largest(x)-smallest(x)
@@ -87,5 +86,26 @@ def central_moments(n,x):
     return ans/len(x)
 
 
-a=[1,2,3,4,5,6,7,8,9]
-print(central_moments(2,a))
+def frequency(x):
+    
+    lowest = min(x)
+    highest = max(x)
+    
+    
+    ren = (highest - lowest) / 50
+    comp = np.linspace(lowest, highest, 51)  
+    
+    
+    ans = np.zeros(50, dtype=int)
+    
+   
+    for value in x:
+        for j in range(len(comp) - 1):
+            if comp[j] <= value < comp[j + 1]:
+                ans[j] += 1
+                break
+    
+    return ans
+
+a=[i for i in range(400)]
+print(frequency(a))
