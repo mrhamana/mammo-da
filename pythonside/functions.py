@@ -82,8 +82,10 @@ def central_moments(n,x):
     ans=0
     
     for i in x:
-        ans=ans+(x-mean(x))**(n)
+        ans=ans+(i-mean(x))**(n)
         
     return ans/len(x)
 
 
+a=[1,2,3,4,5,6,7,8,9]
+print(central_moments(2,a))
