@@ -1,109 +1,112 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from math import floor ,ceil
+from math import floor, ceil
+
 
 def mean(x):
-    return sum(x)/len(x)
+    return sum(x) / len(x)
+
 
 def median(x):
-    n=len(x)
-    
-    if n %2 ==1:
-        return x[n//2]
+    n = len(x)
+
+    if n % 2 == 1:
+        return x[n // 2]
     else:
-        return (x[floor((n-1)/2)]+x[ceil((n-1)/2)])/2
-    
+        return (x[floor((n - 1) / 2)] + x[ceil((n - 1) / 2)]) / 2
+
 
 def smallest(x):
-    small=float('inf')
-    
+    small = float("inf")
+
     for i in x:
-        if i<small:
-            small=i
+        if i < small:
+            small = i
 
     return small
 
+
 def largest(x):
-    biggest=float('-inf')
+    biggest = float("-inf")
     for i in x:
-        if i>biggest:
-            biggest=i
-            
+        if i > biggest:
+            biggest = i
+
     return biggest
 
 
-
 def coff_range(x):
-    num=largest(x)-smallest(x)
-    den=largest(x)+smallest(x)
-    
-    return num/den
+    num = largest(x) - smallest(x)
+    den = largest(x) + smallest(x)
+
+    return num / den
+
 
 def mean_dev(x):
-    ans=0
+    ans = 0
     for i in x:
-        
-        ans+=abs(i-mean(x))
-        
-    return ans/len(x)
+
+        ans += abs(i - mean(x))
+
+    return ans / len(x)
 
 
 def meanroot(x):
-    ans=0
-    
+    ans = 0
+
     for i in x:
-        ans=ans+(i-mean(x))**(2)
-        
+        ans = ans + (i - mean(x)) ** (2)
+
     return ans
 
-def correlation(x, y): #returns the slope of the regression line
+
+def correlation(x, y):  # returns the slope of the regression line
     mean_x = np.mean(x)
     mean_y = np.mean(y)
 
     numerator = np.sum([(i - mean_x) * (j - mean_y) for i, j in zip(x, y)])
-    denominator = np.sqrt(np.sum([(i - mean_x) ** 2 for i in x]) * np.sum([(j - mean_y) ** 2 for j in y]))
+    denominator = np.sqrt(
+        np.sum([(i - mean_x) ** 2 for i in x]) * np.sum([(j - mean_y) ** 2 for j in y])
+    )
 
     if denominator == 0:
-        return np.nan  
+        return np.nan
 
-    corr=numerator / denominator
+    corr = numerator / denominator
     print("The corrolation of the function is {}".format(corr))
-    
-    return corr
-    
 
-def y_intercept(x,y): # returns y intercept of the regression line
-    y=mean(y)-correlation(x,y)*mean(x)
+    return corr
+
+
+def y_intercept(x, y):  # returns y intercept of the regression line
+    y = mean(y) - correlation(x, y) * mean(x)
     print("The y intercept of the data is {}".format(y))
     return y
 
-def central_moments(n,x):
-    ans=0
-    
+
+def central_moments(n, x):
+    ans = 0
+
     for i in x:
-        ans=ans+(i-mean(x))**(n)
-        
-    return ans/len(x)
+        ans = ans + (i - mean(x)) ** (n)
+
+    return ans / len(x)
 
 
 def frequency(x):
-    
+
     lowest = min(x)
     highest = max(x)
-    
-    
+
     ren = (highest - lowest) / 50
-    comp = np.linspace(lowest, highest, 51)  
-    
-    
+    comp = np.linspace(lowest, highest, 51)
+
     ans = np.zeros(50, dtype=int)
-    
-   
+
     for value in x:
         for j in range(len(comp) - 1):
             if comp[j] <= value < comp[j + 1]:
                 ans[j] += 1
                 break
-    
-    return ans
 
+    return ans
