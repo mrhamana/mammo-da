@@ -56,6 +56,32 @@ def median(x):
         return (x[floor((n-1)/2)]+x[ceil((n-1)/2)])/2
     
 
+def smallest(x):
+    small=float('inf')
+    
+    for i in x:
+        if i<small:
+            small=i
+
+    return small
+
+def largest(x):
+    biggest=float('-inf')
+    for i in x:
+        if i>biggest:
+            biggest=i
+            
+    return biggest
+
+def range(x):
+    return largest(x)-smallest(x)
+
+def coff_range(x):
+    num=largest(x)-smallest(x)
+    den=largest(x)+smallest(x)
+    
+    return num/den
+
 def meanroot(x):
     ans=0
     
@@ -94,7 +120,5 @@ def central_moments(n,x):
     return ans/len(x)
 
 
-x=[1,2]
-x.sort()
-print(x)
-print(median(x))
+x=[-10,-69,1,2]
+print(largest(x))
