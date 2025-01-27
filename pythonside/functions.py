@@ -54,9 +54,6 @@ def meanroot(x):
     return ans
 
 def correlation(x, y):
-  
-
-  
     mean_x = np.mean(x)
     mean_y = np.mean(y)
 
@@ -76,4 +73,13 @@ def y_intercept(x,y):
     y=mean(y)-correlation(x,y)*mean(x)
     print("The y intercept of the data is {}".format(y))
     return y
+
+def central_moments(n,x):
+    ans=0
+    
+    for i in x:
+        ans=ans+(x-mean(x))**(n)
+        
+    return ans/len(x)
+
 
