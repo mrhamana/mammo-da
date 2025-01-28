@@ -10,7 +10,7 @@ def histo_graph(file,intervals=20,column_number=3):
     y=[float(i) for i in y]
   
 
-    bin_edges, frequencies = frequency(y, groups=100)
+    bin_edges, frequencies = frequency(y, groups=intervals)
 
     print(bin_edges,frequencies)
     plt.figure(figsize=(10, 10))

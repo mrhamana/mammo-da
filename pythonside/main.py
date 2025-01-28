@@ -4,4 +4,4 @@ import matplotlib.pyplot as plt
 import numpy as np
 import graph as gh
 
-gh.histo_graph("../../data/breast-cancer-cell-data.csv",20,3)
+gh.histo_graph("../data/breast-cancer-cell-data.csv",300,3)
