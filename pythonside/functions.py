@@ -9,12 +9,10 @@ def mean(x):
 
 def median(x):
     n = len(x)
-
     if n % 2 == 1:
         return x[n // 2]
     else:
         return (x[floor((n - 1) / 2)] + x[ceil((n - 1) / 2)]) / 2
-
 
 def smallest(x):
     small = float("inf")
@@ -93,20 +91,27 @@ def central_moments(n, x):
     return ans / len(x)
 
 
-def frequency(x):
 
+def frequency(x, groups=50):
+    if len(x) == 0:
+        return np.zeros(groups, dtype=int)
+    
+    
     lowest = min(x)
     highest = max(x)
 
-    ren = (highest - lowest) / 50
-    comp = np.linspace(lowest, highest, 51)
 
-    ans = np.zeros(50, dtype=int)
+    bin_edges = np.linspace(lowest, highest, groups + 1)
 
-    for value in x:
-        for j in range(len(comp) - 1):
-            if comp[j] <= value < comp[j + 1]:
-                ans[j] += 1
-                break
 
-    return ans
+    bins = np.digitize(x, bin_edges) - 1  
+    bins = np.clip(bins, 0, groups - 1)  
+
+
+    ans = np.bincount(bins, minlength=groups)
+
+    return bin_edges, ans
+
+
+
+
