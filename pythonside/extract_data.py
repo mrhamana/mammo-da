@@ -9,6 +9,20 @@ def extractinfo(file, column_index, seperator=","):
 
     return data
 
+def titles(file,row=0):
+    lines=open(file,'r')
+    count=0
+    
+    for line in lines:
+        val = line.strip().split(',')
+        
+        
+        if count==row:
+            break
+        
+        count+=1
+
+    return val
 
 def malignant(file, column_index, seperator=","):
 
