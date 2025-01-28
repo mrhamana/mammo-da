@@ -20,3 +20,24 @@ def histo_graph(file,intervals=20,column_number=3):
     plt.ylabel('Frequency')
     plt.title('Frequency Distribution of {}'.format(header))
     plt.show()
+
+def plot_sorted_horizontal_bar_graph(data):
+    
+    sorted_data = sorted(data, key=lambda x: x[1], reverse=False)
+    
+    
+    labels = [item[0] for item in sorted_data]
+    values = [item[1] for item in sorted_data]
+    
+   
+    
+    plt.barh(labels, values, color='skyblue')  
+    
+    
+    plt.xlabel('Values')
+    plt.ylabel('Labels')
+    plt.title('Horizontal Bar Graph ')
+    
+    
+    plt.tight_layout()  
+    plt.show()
