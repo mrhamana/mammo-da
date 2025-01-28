@@ -9,12 +9,10 @@ def mean(x):
 
 def median(x):
     n = len(x)
-
     if n % 2 == 1:
         return x[n // 2]
     else:
         return (x[floor((n - 1) / 2)] + x[ceil((n - 1) / 2)]) / 2
-
 
 def smallest(x):
     small = float("inf")
