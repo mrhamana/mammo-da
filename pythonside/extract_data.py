@@ -66,4 +66,3 @@ def pair_vals(file,d1,d2):
         
     return ans[0],ans[1:]
 
-print(__name__)

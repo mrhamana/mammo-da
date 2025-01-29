@@ -6,7 +6,6 @@ from math import floor, ceil
 def mean(x):
     return sum(x) / len(x)
 
-
 def median(x):
     n = len(x)
     if n % 2 == 1:
@@ -23,7 +22,6 @@ def smallest(x):
 
     return small
 
-
 def largest(x):
     biggest = float("-inf")
     for i in x:
@@ -32,13 +30,11 @@ def largest(x):
 
     return biggest
 
-
 def coff_range(x):
     num = largest(x) - smallest(x)
     den = largest(x) + smallest(x)
 
     return num / den
-
 
 def mean_dev(x):
     ans = 0
@@ -48,7 +44,6 @@ def mean_dev(x):
 
     return ans / len(x)
 
-
 def meanroot(x):
     ans = 0
 
@@ -56,7 +51,6 @@ def meanroot(x):
         ans = ans + (i - mean(x)) ** (2)
 
     return ans
-
 
 def correlation(x, y):  # returns the slope of the regression line
     mean_x = np.mean(x)
@@ -75,12 +69,10 @@ def correlation(x, y):  # returns the slope of the regression line
 
     return corr
 
-
 def y_intercept(x, y):  # returns y intercept of the regression line
     y = mean(y) - correlation(x, y) * mean(x)
     print("The y intercept of the data is {}".format(y))
     return y
-
 
 def central_moments(n, x):
     ans = 0
@@ -89,8 +81,6 @@ def central_moments(n, x):
         ans = ans + (i - mean(x)) ** (n)
 
     return ans / len(x)
-
-
 
 def frequency(x, groups=50):
     if len(x) == 0:
@@ -112,6 +102,22 @@ def frequency(x, groups=50):
 
     return bin_edges, ans
 
+def third_quartile(data):
+    data.sort() 
+    
+    n = len(data)
+    position = (3 * (n + 1)) / 4  
+
+   
+    if position.is_integer():
+        return data[int(position) - 1]  
+    
+    
+    lower_index = int(position) - 1 
+    upper_index = lower_index + 1  
+    weight = position - lower_index - 1  
+
+    return data[lower_index] + weight * (data[upper_index] - data[lower_index])
 
 
-
+print(third_quartile([1,2,3,4,5,6]))

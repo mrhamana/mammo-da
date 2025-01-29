@@ -1,26 +1,17 @@
-import matplotlib.pyplot as plt
-
-def plot_sorted_horizontal_bar_graph(data):
-    
-    sorted_data = sorted(data, key=lambda x: x[1], reverse=False)
-    
-    
-    labels = [item[0] for item in sorted_data]
-    values = [item[1] for item in sorted_data]
-    
-   
-    
-    plt.barh(labels, values, color='skyblue')  
-    
-    
-    plt.xlabel('Values')
-    plt.ylabel('Labels')
-    plt.title('Horizontal Bar Graph Sorted in Descending Order')
-    
-    
-    plt.tight_layout()  
-    plt.show()
-
-
-data = [["A", 10], ["B", 30], ["C", 20], ["D", 50], ["E", 40]]
-plot_sorted_horizontal_bar_graph(data)
+class Solution:
+    def vowelStrings(self, words, queries):
+        vowels={'a','e','i','o','u'}
+        ans=[]
+        
+        for i,j in queries:
+            count=0
+            for k in range(i,j):
+                if words[k][0] in vowels and words[k][-1] in vowels:
+                    count+=1
+                    
+            ans.append(count)
+            
+        return ans
+            
+            
+            
