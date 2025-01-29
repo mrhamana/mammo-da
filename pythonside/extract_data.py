@@ -4,11 +4,14 @@ def extractinfo(file, column_index, seperator=","):
 
     lines = open(file, "r")
     data = []
-
+    count=0
     for line in lines:
-        val = line.strip().split(seperator)[column_index]
-        data.append(val)
+        if not count==0:
+            
+            val = line.strip().split(seperator)[column_index]
+            data.append(float(val))
 
+        count+=1
     return data
 
 def titles(file,row=0):

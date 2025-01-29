@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from functions import frequency
+from functions import frequency,n_quartile
 import extract_data as ed
 
 def histo_graph(file,intervals=20,column_number=3):
@@ -35,3 +35,12 @@ def plot_sorted_horizontal_bar_graph(data):
     plt.tight_layout()  
     plt.show()
 
+def boxplot(data):
+    plt.boxplot(data,orientation='horizontal')
+    plt.show()
+    
+data=ed.extractinfo('data/breast-cancer-cell-data.csv',4)
+data.sort()
+
+print(data)
+plt.boxplot(data=data)

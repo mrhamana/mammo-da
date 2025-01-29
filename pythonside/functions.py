@@ -52,7 +52,7 @@ def meanroot(x):
 
     return ans
 
-def correlation(x, y):  # returns the slope of the regression line
+def correlation(x, y):  
     mean_x = np.mean(x)
     mean_y = np.mean(y)
 
@@ -69,7 +69,7 @@ def correlation(x, y):  # returns the slope of the regression line
 
     return corr
 
-def y_intercept(x, y):  # returns y intercept of the regression line
+def y_intercept(x, y):  
     y = mean(y) - correlation(x, y) * mean(x)
     print("The y intercept of the data is {}".format(y))
     return y
@@ -102,9 +102,6 @@ def frequency(x, groups=50):
 
     return bin_edges, ans
 
-
-
-    
 
 def n_quartile(data,p):
     data.sort()
