@@ -102,11 +102,15 @@ def frequency(x, groups=50):
 
     return bin_edges, ans
 
-def third_quartile(data):
-    data.sort() 
+
+
     
+
+def n_quartile(data,p):
+    data.sort()
     n = len(data)
-    position = (3 * (n + 1)) / 4  
+    
+    position = (p*(n + 1)) / 4  
 
    
     if position.is_integer():
@@ -120,4 +124,3 @@ def third_quartile(data):
     return data[lower_index] + weight * (data[upper_index] - data[lower_index])
 
 
-print(third_quartile([1,2,3,4,5,6]))
