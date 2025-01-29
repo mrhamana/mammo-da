@@ -120,4 +120,10 @@ def n_quartile(data,p):
 
     return data[lower_index] + weight * (data[upper_index] - data[lower_index])
 
-
+def deviation(data):
+    ans=0
+    
+    for i in data:
+        ans+=(i-mean(data))**2
+        
+    return (ans/len(data))**(1/2)

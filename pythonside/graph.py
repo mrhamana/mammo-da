@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from functions import frequency,n_quartile
+from functions import frequency,deviation,mean
 import extract_data as ed
 
 def histo_graph(file,intervals=20,column_number=3):
@@ -39,8 +39,16 @@ def boxplot(data):
     plt.boxplot(data,orientation='horizontal')
     plt.show()
     
-data=ed.extractinfo('data/breast-cancer-cell-data.csv',4)
-data.sort()
-
-print(data)
-plt.boxplot(data=data)
+def normal_graph(data):
+    mean_data = np.mean(data)
+    std_data = deviation(data)
+    x = np.arange(-10+mean_data, +10+mean_data, 0.1)
+    const = np.sqrt(2 * np.pi * std_data**2)
+    num = np.exp(-(x - mean_data)**2 / (2 * std_data**2))
+    y = num / const
+    plt.plot(x, y)
+    plt.title('Normal Distribution')
+    plt.xlabel('x')
+    plt.ylabel('Probability Density')
+    plt.show()
+    
