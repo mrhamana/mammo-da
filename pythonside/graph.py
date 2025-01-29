@@ -24,16 +24,10 @@ def histo_graph(file,intervals=20,column_number=3):
 def plot_sorted_horizontal_bar_graph(data):
     
     sorted_data = sorted(data, key=lambda x: x[1], reverse=False)
-    
-    
     labels = [item[0] for item in sorted_data]
     values = [item[1] for item in sorted_data]
     
-   
-    
     plt.barh(labels, values, color='skyblue')  
-    
-    
     plt.xlabel('Values')
     plt.ylabel('Labels')
     plt.title('Horizontal Bar Graph ')
@@ -41,3 +35,7 @@ def plot_sorted_horizontal_bar_graph(data):
     
     plt.tight_layout()  
     plt.show()
+
+lebel,data=ed.pair_vals('data/breast-continent-mort.csv',0,5)
+print(lebel)
+plot_sorted_horizontal_bar_graph(data)

@@ -1,3 +1,5 @@
+import sys
+
 def extractinfo(file, column_index, seperator=","):
 
     lines = open(file, "r")
@@ -52,3 +54,16 @@ def benign(file, column_index, seperator=","):
             ans.append(float(val[column_index]))
 
     return ans
+
+def pair_vals(file,d1,d2):
+    ans=[]
+    
+    lines=open(file,'r')
+    
+    for line in lines:
+        line= line.split(',')
+        ans.append([line[d1],line[d2]])
+        
+    return ans[0],ans[1:]
+
+print(__name__)

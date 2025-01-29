@@ -3,8 +3,10 @@ import extract_data as ed
 import matplotlib.pyplot as plt
 import numpy as np
 import graph as gh
-import sys
-themain=ed.titles('../data/breast-cancer-cell-data.csv',int(sys.argv[1]))
+from pathlib import Path
+import os
 
 
-print('length of all parameters is {}'.format(len(themain)))
+
+
+print(ed.titles('data/breast-continent-mort.csv'))
