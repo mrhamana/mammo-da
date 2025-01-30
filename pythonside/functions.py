@@ -120,10 +120,16 @@ def n_quartile(data,p):
 
     return data[lower_index] + weight * (data[upper_index] - data[lower_index])
 
-def deviation(data):
-    ans=0
+
+def skewness(x):
+    num=central_moments(3,x)  
+    den=central_moments(2,x)**(3/2)
     
-    for i in data:
-        ans+=(i-mean(data))**2
-        
-    return (ans/len(data))**(1/2)
+    return num/den
+
+def kurtosis(x):
+    num=central_moments(4,x)
+    den=central_moments(2,x)**2
+    
+    return (num/den)-3
+

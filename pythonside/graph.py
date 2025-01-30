@@ -34,10 +34,10 @@ def boxplot(data):
     plt.boxplot(data,orientation='horizontal')
     plt.show()
     
-def normal_graph(data):
+def normal_graph(data,n):
     mean_data = np.mean(data)
     std_data = deviation(data)
-    x = np.arange(-10+mean_data, +10+mean_data, 0.1)
+    x = np.arange(-n+mean_data, +n+mean_data, 0.1)
     const = np.sqrt(2 * np.pi * std_data**2)
     num = np.exp(-(x - mean_data)**2 / (2 * std_data**2))
     y = num / const
