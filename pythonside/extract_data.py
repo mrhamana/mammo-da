@@ -71,7 +71,23 @@ def pair_vals(file,d1,d2):
             temp1=line[d1]
             
         if line[d2][:-2]=='\n':
-            temp2=line[d1][:-2]
+            temp2=line[d2][:-2]
+        else:
+            temp2=line[d2]
+            
+        try:
+            temp1=float(temp1)
+        except ValueError:
+            pass
+        
+        try:
+            temp2=float(temp2)
+        except ValueError:
+            pass
+        
+        ans.append([temp1,temp2])
+    return ans[0],ans[1:]
+        
             
         
     
