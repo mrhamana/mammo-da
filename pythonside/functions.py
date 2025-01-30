@@ -1,7 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from math import floor, ceil
-
 
 def mean(x):
     return sum(x) / len(x)
@@ -85,19 +83,11 @@ def central_moments(n, x):
 def frequency(x, groups=50):
     if len(x) == 0:
         return np.zeros(groups, dtype=int)
-    
-    
     lowest = min(x)
     highest = max(x)
-
-
     bin_edges = np.linspace(lowest, highest, groups + 1)
-
-
     bins = np.digitize(x, bin_edges) - 1  
     bins = np.clip(bins, 0, groups - 1)  
-
-
     ans = np.bincount(bins, minlength=groups)
 
     return bin_edges, ans
@@ -124,12 +114,10 @@ def n_quartile(data,p):
 def skewness(x):
     num=central_moments(3,x)  
     den=central_moments(2,x)**(3/2)
-    
     return num/den
 
 def kurtosis(x):
     num=central_moments(4,x)
     den=central_moments(2,x)**2
-    
     return (num/den)-3
 

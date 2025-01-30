@@ -1,5 +1,3 @@
-a=[1,2,3,4,5,6]
+a='-123'
 
-a=[[i,j] for i,j in enumerate(a)]
-
-print(a)
+print(a.isdigit())

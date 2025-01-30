@@ -1,12 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from functions import frequency,central_moments
-import extract_data as ed
+import functions as fn
 import scipy.stats as stats
 
 def histo_graph(data,intervals=20,header=None):
     
-    bin_edges, frequencies = frequency(data, groups=intervals)
+    bin_edges, frequencies = fn.frequency(data, groups=intervals)
 
     
     plt.figure(figsize=(10, 10))
@@ -17,19 +16,29 @@ def histo_graph(data,intervals=20,header=None):
     plt.title('Frequency Distribution of {}'.format(header))
     plt.show()
 
-def plot_sorted_horizontal_bar_graph(data):
-    label,my_list=data
+import matplotlib.pyplot as plt
+
+def plot_sorted_horizontal_bar_graph(data, max_bars=20):
+    label, my_list = data
     sorted_data = sorted(my_list, key=lambda x: x[1], reverse=False)
+    
+   
+    if len(sorted_data) > max_bars:
+        sorted_data = sorted_data[-max_bars:] 
+    
     labels = [item[0] for item in sorted_data]
     values = [item[1] for item in sorted_data]
-    plt.barh(labels, values, color='skyblue')  
+
+    plt.figure(figsize=(10, min(0.5 * len(labels), 12)))  
+    plt.barh(labels, values, color='skyblue')
+
     plt.xlabel(label[1])
-    
-    plt.title('Bar Graph ')
-    
-    
-    plt.tight_layout()  
+    plt.title('Bar Graph')
+
+    plt.xticks(rotation=45) 
+    plt.tight_layout()
     plt.show()
+
 
 def boxplot(data):
     plt.boxplot(data,orientation='horizontal')
@@ -37,7 +46,7 @@ def boxplot(data):
     
 def normal_graph(data,n):
     mean_data = np.mean(data)
-    std_data = central_moments(2,data)**(1/2)
+    std_data = fn.central_moments(2,data)**(1/2)
     x = np.arange(-n+mean_data, +n+mean_data, 0.1)
     const = np.sqrt(2 * np.pi * std_data**2)
     num = np.exp(-(x - mean_data)**2 / (2 * std_data**2))
@@ -50,13 +59,8 @@ def normal_graph(data,n):
     plt.show()
     
 def estimate_pdf(data, plot=True):
-    
-    mean = np.mean(data)
-    variance = np.var(data)
-    skewness = stats.skew(data)
-    kurtosis = stats.kurtosis(data) 
-    
-    print(f"Mean: {mean}, Variance: {variance}, Skewness: {skewness}, Kurtosis: {kurtosis}")
+    skewness = fn.skewness(data)
+    kurtosis = fn.kurtosis(data) 
     
     
     if np.abs(skewness) < 0.1 and np.abs(kurtosis) < 0.1:
@@ -80,10 +84,8 @@ def estimate_pdf(data, plot=True):
     x = np.linspace(min(data), max(data), 1000)
     pdf_fitted = pdf_func(x)
     
-  
     if plot:
         plt.plot(x, pdf_fitted, 'r-', label=f"Fitted {dist_name.capitalize()} PDF")
         plt.legend()
         plt.show()
     
-    return {"distribution": dist_name, "params": params}

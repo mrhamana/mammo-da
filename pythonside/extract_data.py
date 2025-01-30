@@ -1,5 +1,3 @@
-import sys
-
 def extractinfo(file, list, seperator=","):
 
     lines = open(file, "r")
@@ -65,7 +63,16 @@ def pair_vals(file,d1,d2):
     
     for line in lines:
         line= line.split(',')
-        ans.append([line[d1],line[d2]])
+        temp1=''
+        temp2=''
+        if line[d1][-2:]=='\n':
+            temp1=line[d1][:-2]
+        else:
+            temp1=line[d1]
+            
+        if line[d2][:-2]=='\n':
+            temp2=line[d1][:-2]
+            
         
-    return ans[0],ans[1:]
+    
 
