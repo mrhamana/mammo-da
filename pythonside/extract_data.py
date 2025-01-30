@@ -1,6 +1,6 @@
 import sys
 
-def extractinfo(file, column_index, seperator=","):
+def extractinfo(file, list, seperator=","):
 
     lines = open(file, "r")
     data = []
@@ -8,11 +8,11 @@ def extractinfo(file, column_index, seperator=","):
     for line in lines:
         if not count==0:
             
-            val = line.strip().split(seperator)[column_index]
+            val = line.strip().split(seperator)[list[0]]
             data.append(float(val))
 
         count+=1
-    return data
+    return list[1],data
 
 def titles(file,row=0):
     lines=open(file,'r')
