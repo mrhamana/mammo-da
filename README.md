@@ -68,3 +68,20 @@ Authors:
 1. **Histogram**
 2. **Boxplots**
 3. **Bargraphs**
+
+## Code Structure
+
+The project includes the following key files:
+
+*   `main.ipynb`: Jupyter Notebook containing the main analysis code.
+*   `functions.py`: Python file containing statistical functions.
+*   `extract_data.py`: Python file containing functions to extract data from the CSV files.
+*   `graph.py`: Python file containing functions to generate graphs.
+
+## How to Run
+
+1.  Ensure you have Python and Jupyter Notebook installed.
+2.  Clone the repository.
+3.  Navigate to the project directory.
+4.  Run `jupyter notebook main.ipynb` to open the notebook.
+5.  Execute the cells in the notebook to perform the analysis.
