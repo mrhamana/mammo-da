@@ -1,0 +1,12 @@
+\frametitle{Dataset Introduction}
+    \textbf{Source of the Dataset:}\\[1ex]
+    This breast cancer domain was obtained from the University Medical Centre, Institute of Oncology, Ljubljana, Yugoslavia. This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.
+
+    \vspace{1em}
+    \textbf{Citations:}\\[0.5ex]
+        Zwitter, M. & Soklic, M. (1988). Breast Cancer [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C51P4M.
+
+
+    \vspace{1em}
+    \textbf{Download Link:}\\[0.5ex]
+    \href{https://archive.ics.uci.edu/dataset/14/breast+cancer}{https://archive.ics.uci.edu/dataset/14/breast+cancer}
