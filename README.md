@@ -63,3 +63,8 @@ Authors:
 
 ## Inferential Statistics
 1.  **Regression Analysis** 
+
+## Visualization tools:
+1. **Histogram**
+2. **Boxplots**
+3. **Bargraphs**
