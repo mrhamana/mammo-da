@@ -67,7 +67,11 @@ Authors:
 ## Visualization tools:
 1. **Histogram**
 2. **Boxplots**
-3. **Bargraphs**
+3. **Sorted Bar Graph**
+4. **Normal graph**
+5. **Scatter plot**
+6. **Q-Q plot (Quantile-quantile plot)**
+7. **Correlation Heatmap**
 
 ## Code Structure
 
