@@ -45,34 +45,40 @@ def boxplot(data):
     plt.show()
 
 
-def normal_graph(data, n):
+def normal_graph(data, std_dev_range=3, title=None, xlabel=None, ylabel=None, figsize=None):
     mean_data = np.mean(data)
     std_data = fn.central_moments(2, data)**(1/2)
-    x = np.arange(-n+mean_data, +n+mean_data, 0.1)
-    const = np.sqrt(2 * np.pi * std_data**2)
-    num = np.exp(-(x - mean_data)**2 / (2 * std_data**2))
-    y = num / const
-    plt.plot(x, y)
-    plt.title('Normal Distribution')
-    plt.xlabel('x')
-
-    plt.ylabel('Probability Density')
+    
+    if figsize: plt.figure(figsize=figsize)
+    
+    x = np.linspace(mean_data - std_dev_range*std_data, 
+                    mean_data + std_dev_range*std_data, 
+                    1000)
+    y = stats.norm.pdf(x, mean_data, std_data)
+    
+    plt.plot(x, y, 'b-', lw=2)
+    plt.title(title or 'Normal Distribution Fit')
+    plt.xlabel(xlabel or 'Values')
+    plt.ylabel(ylabel or 'Probability Density')
+    plt.grid(True)
     plt.show()
 
 
-def estimate_pdf(data, plot=True):
-    skewness = fn.skewness(data)
-    kurtosis = fn.kurtosis(data)
+def estimate_pdf(data, num_points=1000, title=None, xlabel=None, ylabel=None, figsize=None, plot=True):
+    # Calculate distribution characteristics
+    skewness_val = fn.skewness(data)
+    kurtosis_val = fn.kurtosis(data)
 
-    if np.abs(skewness) < 0.1 and np.abs(kurtosis) < 0.1:
+    # Distribution fitting logic (keep your existing code)
+    if np.abs(skewness_val) < 0.1 and np.abs(kurtosis_val) < 0.1:
         dist_name = "normal"
         params = stats.norm.fit(data)
         def pdf_func(x): return stats.norm.pdf(x, *params)
-    elif skewness > 0:
+    elif skewness_val > 0:
         dist_name = "gamma"
         params = stats.gamma.fit(data)
         def pdf_func(x): return stats.gamma.pdf(x, *params)
-    elif skewness < 0:
+    elif skewness_val < 0:
         dist_name = "lognorm"
         params = stats.lognorm.fit(data)
         def pdf_func(x): return stats.lognorm.pdf(x, *params)
@@ -81,14 +87,29 @@ def estimate_pdf(data, plot=True):
         params = stats.t.fit(data)
         def pdf_func(x): return stats.t.pdf(x, *params)
 
-    x = np.linspace(min(data), max(data), 1000)
+    # Generate PDF points
+    x = np.linspace(min(data), max(data), num_points)
     pdf_fitted = pdf_func(x)
 
     if plot:
+        # Configure plot appearance
+        if figsize:
+            plt.figure(figsize=figsize)
         plt.plot(x, pdf_fitted, 'r-',
                  label=f"Fitted {dist_name.capitalize()} PDF")
+
+        # Add labels if provided
+        if title:
+            plt.title(title)
+        if xlabel:
+            plt.xlabel(xlabel)
+        if ylabel:
+            plt.ylabel(ylabel)
+
         plt.legend()
         plt.show()
+
+    return x, pdf_fitted  # Return values for further analysis
 
 
 def scatter_plot(x, y, xlabel=None, ylabel=None, title=None):
@@ -102,11 +123,20 @@ def scatter_plot(x, y, xlabel=None, ylabel=None, title=None):
     plt.show()
 
 
-def qq_plot(data, dist='norm'):
+def qq_plot(data, dist='norm', title=None, xlabel=None, ylabel=None, figsize=None):
     """Create a Q-Q plot to check for normality."""
-    plt.figure(figsize=(10, 8))
+    if figsize:
+        plt.figure(figsize=figsize)
+        
     stats.probplot(data, dist=dist, plot=plt)
-    plt.title('Q-Q Plot')
+    
+    if title:
+        plt.title(title)
+    if xlabel:
+        plt.xlabel(xlabel)
+    if ylabel:
+        plt.ylabel(ylabel)
+        
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.show()
 
