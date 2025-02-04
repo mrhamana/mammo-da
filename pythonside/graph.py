@@ -154,3 +154,23 @@ def correlation_heatmap(data, labels=None):
     plt.title('Correlation Heatmap')
     plt.tight_layout()
     plt.show()
+
+def plot_skew_comparison(data, title=None, figsize=None):
+    """Visual comparison of different skewness measures"""
+    from functions import skewness, pearson_skewness, bowley_skewness  
+    if figsize:
+        plt.figure(figsize=figsize)
+        
+    measures = ['Moments', 'Pearson', 'Bowley']
+    values = [
+        skewness(data),          
+        pearson_skewness(data),  
+        bowley_skewness(data)    
+    ]
+    
+    plt.bar(measures, values, color=['#1f77b4', '#ff7f0e', '#2ca02c'])
+    plt.axhline(0, color='black', linestyle='--')
+    plt.title(title or 'Skewness Measures Comparison')
+    plt.ylabel('Skewness Coefficient')
+    plt.grid(True, axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
