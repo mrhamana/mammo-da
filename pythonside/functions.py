@@ -41,11 +41,8 @@ def largest(x):
     return biggest
 
 
-def coff_range(x):
-    num = largest(x) - smallest(x)
-    den = largest(x) + smallest(x)
-
-    return num / den
+def coff_range(largest,smallest):
+    return (largest-smallest)/(largest+smallest)
 
 
 def mean_dev(x):
@@ -160,13 +157,13 @@ def variance(x):
     mu = mean(x)
     return sum([(i - mu) ** 2 for i in x]) / (n - 1)
 
-def coefficient_sd(x):
+def coefficient_sd(x, mean_x):
     """Calculate the coefficient of standard deviation."""
-    return standard_deviation(x) / mean(x)
+    return standard_deviation(x) / mean_x
 
-def coefficient_variation(x):
+def coefficient_variation(x, mean_x):
     """Calculate the coefficient of variation as percentage."""
-    return coefficient_sd(x) * 100
+    return (standard_deviation(x) / mean_x) * 100
 
 def midrange(x):
     """Calculate the midrange of a dataset."""
