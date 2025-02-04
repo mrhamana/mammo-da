@@ -48,8 +48,5 @@ This document outlines a detailed plan for performing statistical analysis on th
     *   **Purpose:** Model the linear relationship and quantify the goodness of fit.
 
 **Note:**
-
-*   This plan assumes the `breast-country.csv` file is accessible.
-*   Adapt column names in this plan to match the actual column names in your CSV files.
 *   Ensure data is loaded and preprocessed correctly before applying these analyses.
 *   Focus on interpreting the results and drawing meaningful conclusions from the statistical measures and visualizations.
