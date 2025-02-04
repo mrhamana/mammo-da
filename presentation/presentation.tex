@@ -6,6 +6,19 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 
+\usepackage{amsmath}       % For mathematical equations
+\usepackage{listings}      % For code listings
+\usepackage{textcomp}  % Add before siunitx
+\usepackage{siunitx}       % For SI units formatting
+\sisetup{
+  per-mode = symbol,
+  group-separator = {,},
+  group-minimum-digits = 4,
+  inter-unit-product = \ensuremath{{}\cdot{}},
+  number-unit-product = \,
+}
+\DeclareSIUnit{\perthousand}{\ensuremath{\text{\textperthousand}}}
+
 \usetheme{default}
 
 \title{Breast Cancer Analysis}
@@ -15,7 +28,6 @@
 \begin{document}
 
 \input{introduction.tex}
-
-
+\input{descriptive-statistics.tex}
 
 \end{document}

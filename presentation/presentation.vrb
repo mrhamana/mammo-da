@@ -1,12 +1,26 @@
-\frametitle{Dataset Introduction}
-    \textbf{Source of the Dataset:}\\[1ex]
-    This breast cancer domain was obtained from the University Medical Centre, Institute of Oncology, Ljubljana, Yugoslavia. This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.
+\frametitle{Distribution Position Measures}
+    \begin{itemize}
+        \item \textbf{Formula (Percentile):}
+        \[
+        P_k = x_{(\frac{k}{100} \times (n + 1))}
+        \]
 
-    \vspace{1em}
-    \textbf{Citations:}\\[0.5ex]
-        Zwitter, M. & Soklic, M. (1988). Breast Cancer [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C51P4M.
+        \item \textbf{Python Functions:}
+        \begin{lstlisting}[language=Python]
+def n_quartile(sorted_x, q):
+    pos = (len(sorted_x) - 1) * q
+    floor_pos = int(pos)
+    return sorted_x[floor_pos]
 
+def percentile(sorted_x, p):
+    return n_quartile(sorted_x, p/100)
+        \end{lstlisting}
 
-    \vspace{1em}
-    \textbf{Download Link:}\\[0.5ex]
-    \href{https://archive.ics.uci.edu/dataset/14/breast+cancer}{https://archive.ics.uci.edu/dataset/14/breast+cancer}
+        \item \textbf{Findings:}
+        \begin{itemize}
+            \item Q1: \SI{14.31}{\perthousand}, Q3: \SI{47.68}{\perthousand}
+            \item P90: \SI{84.72}{\perthousand}, P99: \SI{104.45}{\perthousand}
+        \end{itemize}
+
+        \item \textbf{Interpretation:} 90th percentile value nearly doubles the median, indicating top 10\% of countries have disproportionately high breast cancer rates.
+    \end{itemize}
