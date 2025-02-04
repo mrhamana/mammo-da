@@ -1,22 +1,21 @@
-\frametitle{PDF Estimation Code}
+\frametitle{Q-Q Plot Implementation}
     \begin{itemize}
-        \item \textbf{Python Implementation:}
+        \item \textbf{Python Code:}
         \begin{lstlisting}
-gh.estimate_pdf(
+gh.qq_plot(
     data=asr_data,
-    title=f'PDF Estimation',
-    xlabel='Cases per 100,000',
-    ylabel='Density',
-    figsize=(10, 6),
-    num_points=1000
+    title=f'Q-Q Plot',
+    xlabel='Theoretical Quantiles',
+    ylabel='Sample Quantiles',
+    figsize=(8, 8)
 )
-plt.savefig('./images/graph/pdf.png')
+plt.savefig('./images/graph/qqplot.png')
         \end{lstlisting}
 
-        \item \textbf{Features:}
+        \item \textbf{Key Features:}
         \begin{itemize}
-            \item Automatic distribution selection
-            \item 1000-point density estimation
-            \item AIC/BIC model comparison
+            \item 45° reference line for normality
+            \item 95\% confidence band
+            \item Scipy.probplot integration
         \end{itemize}
     \end{itemize}
