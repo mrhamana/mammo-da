@@ -2,10 +2,10 @@
 This is an ongoing project that aims to use the dataset with the statistical tools to draw meaningful insights.
 
 Authors:
-1. shiva Sagar Yadav
-2. Second person
-3. Third Person
-4. Fourth person
+1. Shiva Sagar Yadav
+2. Aman Sapkota
+3. Namit Adhikari
+4. Saugat Khatiwada
 
 # Statistical Measures and Concepts
 
