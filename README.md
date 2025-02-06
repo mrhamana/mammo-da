@@ -2,7 +2,7 @@
 This is an ongoing project that aims to use the dataset with the statistical tools to draw meaningful insights.
 
 Authors:
-1. First person
+1. swatat
 2. Second person
 3. Third Person
 4. Fourth person
