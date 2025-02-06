@@ -5,6 +5,7 @@ cycler
 debugpy
 decorator
 executing
+extract_data
 fonttools
 ipykernel
 ipython

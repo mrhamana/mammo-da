@@ -1,12 +1,22 @@
-\frametitle{Dataset Introduction}
-    \textbf{Source of the Dataset:}\\[1ex]
-    This breast cancer domain was obtained from the University Medical Centre, Institute of Oncology, Ljubljana, Yugoslavia. This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.
+\frametitle{PDF Estimation Code}
+    \begin{itemize}
+        \item \textbf{Python Implementation:}
+        \begin{lstlisting}
+gh.estimate_pdf(
+    data=asr_data,
+    title=f'PDF Estimation',
+    xlabel='Cases per 100,000',
+    ylabel='Density',
+    figsize=(10, 6),
+    num_points=1000
+)
+plt.savefig('./images/graph/pdf.png')
+        \end{lstlisting}
 
-    \vspace{1em}
-    \textbf{Citations:}\\[0.5ex]
-        Zwitter, M. & Soklic, M. (1988). Breast Cancer [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C51P4M.
-
-
-    \vspace{1em}
-    \textbf{Download Link:}\\[0.5ex]
-    \href{https://archive.ics.uci.edu/dataset/14/breast+cancer}{https://archive.ics.uci.edu/dataset/14/breast+cancer}
+        \item \textbf{Features:}
+        \begin{itemize}
+            \item Automatic distribution selection
+            \item 1000-point density estimation
+            \item AIC/BIC model comparison
+        \end{itemize}
+    \end{itemize}
