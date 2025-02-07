@@ -168,13 +168,12 @@ def standard_deviation(x):
 
 
 def variance(x):
-    """Calculates the variance of a list of numbers."""
+    """Population variance to match covariance changes"""
     n = len(x)
-    if n < 2:
-        return 0  # Variance is not defined for less than 2 data points
-
-    mu = mean(x)
-    return sum([(i - mu) ** 2 for i in x]) / (n - 1)
+    if n < 1:
+        return np.nan
+    mean_x = mean(x)
+    return sum((xi - mean_x)**2 for xi in x) / n
 
 
 def coefficient_sd(x, mean_x):
@@ -216,7 +215,7 @@ def raw_moments(n, x):
 
 def regression_slope(x, y):
     """Calculate regression slope."""
-    return covariance(x, y) / variance(x)
+    return covariance(x, y) / variance(x) 
 
 
 def r_squared(x, y):
@@ -229,11 +228,12 @@ def covariance(x, y):
     """Calculates the covariance between two lists of numbers."""
     n = len(x)
     if n < 2 or n != len(y):
-        return np.nan  # Covariance is not defined for less than 2 data points or unequal lengths
-
+        return np.nan
+    
+    # Use population covariance (n instead of n-1) to match regression_slope
     mean_x = mean(x)
     mean_y = mean(y)
-    return sum([(x[i] - mean_x) * (y[i] - mean_y) for i in range(n)]) / (n - 1)
+    return sum((xi - mean_x) * (yi - mean_y) for xi, yi in zip(x, y)) / n  # Changed to n
 
 
 def percentile(data, p):
