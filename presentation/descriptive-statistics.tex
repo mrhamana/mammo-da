@@ -15,7 +15,7 @@
         \end{itemize}
         
         \item \textbf{Python Function:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def mean(x):
     return sum(x) / len(x)
         \end{lstlisting}
@@ -39,7 +39,7 @@ asr_mean = mean(asr_data)  # Returns 47.79
       \end{itemize}
         
         \item \textbf{Python Function:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def median(x):
     n = len(x)
     if n % 2 == 1:
@@ -72,7 +72,7 @@ asr_median = median(asr_data)  # Returns 45.44
         \end{itemize}
         
         \item \textbf{Python Function:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def mode(x):
     freq = {}
     for val in x:
@@ -104,7 +104,7 @@ asr_mode = mode(asr_data)  # Returns [0.0]
         \]
         
         \item \textbf{Python Function:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def standard_deviation(x):
     m = mean(x)
     return (sum((xi - m)**2 for xi in x) / (len(x)-1)) ** 0.5
@@ -136,7 +136,7 @@ asr_variance = asr_standard_deviation**2  # 605.08
         \end{itemize}
         
         \item \textbf{Python Function:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def iqr(x):
     sorted_x = sorted(x)
     q1 = n_quartile(sorted_x, 0.25)
@@ -163,7 +163,7 @@ asr_iqr = iqr(asr_data)  # Returns 33.37
         \]
         
         \item \textbf{Python Functions:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def smallest(x):
     return min(x)
 
@@ -191,7 +191,7 @@ asr_largest = largest(asr_data)    # 105.42
         \]
         
         \item \textbf{Python Function:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def coff_range(L, S):
     return (L - S) / (L + S)
         \end{lstlisting}
@@ -216,7 +216,7 @@ asr_coff_range = coff_range(105.42, 0.0)  # 1.0
         \]
         
         \item \textbf{Python Function:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def mean_dev(x):
     m = mean(x)
     return sum(abs(xi - m) for xi in x) / len(x)
@@ -241,7 +241,7 @@ asr_mean_dev = mean_dev(asr_data)  # 19.89
         \]
         
         \item \textbf{Python Functions:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def coefficient_sd(x, x_mean):
     return standard_deviation(x) / x_mean
 
@@ -270,7 +270,7 @@ asr_coefficient_variation = 51.47
         \]
         
         \item \textbf{Python Functions:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def quartile_deviation(x):
     return iqr(x) / 2
 
@@ -298,7 +298,7 @@ asr_midrange = 52.71
         \]
         
         \item \textbf{Python Functions:}
-        \begin{lstlisting}[language=Python]
+        \begin{lstlisting}[language=Python, breaklines=true]
 def n_quartile(sorted_x, q):
     pos = (len(sorted_x) - 1) * q
     floor_pos = int(pos)
