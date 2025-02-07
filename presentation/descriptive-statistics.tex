@@ -86,12 +86,12 @@ def mode(x):
 asr_mode = mode(asr_data)  # Returns [0.0]
         \end{lstlisting}
         
-        \item \textbf{Interpretation:} The most frequent value (\SI{0.0}{\perthousand}) indicates potential data quality issues - may represent missing entries or countries with exceptionally low rates requiring validation.
+        \item \textbf{Interpretation:} The most frequent value (\SI{0.0}{\perthousand}) indicates potential data quality issues - may represent missing countries with exceptionally low rates requiring validation.
     \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Standard Deviation \& Variance}
+    \frametitle{Standard Deviation \& Variance: Formulas}
     \begin{itemize}
         \item \textbf{Standard Deviation Formula:}
         \[
@@ -109,14 +109,26 @@ def standard_deviation(x):
     m = mean(x)
     return (sum((xi - m)**2 for xi in x) / (len(x)-1)) ** 0.5
         \end{lstlisting}
-        
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Standard Deviation \& Variance: Results}
+    \begin{itemize}
         \item \textbf{Implementation:}
         \begin{lstlisting}
-asr_standard_deviation = standard_deviation(asr_data)  # 24.60
-asr_variance = asr_standard_deviation**2  # 605.08
+asr_standard_deviation = 
+standard_deviation(asr_data)  
+# 24.60
+asr_variance = asr_standard_deviation**2  
+# 605.08
         \end{lstlisting}
         
-        \item \textbf{Interpretation:} With SD of \SI{24.60}{\perthousand}, countries' rates typically deviate ±24.6 from the mean. High variance (605.08) confirms substantial global disparities in breast cancer incidence.
+        \item \textbf{Interpretation:}
+        \begin{itemize}
+            \item Standard Deviation (\SI{24.60}{\perthousand}): Countries' rates typically deviate ±24.6 from the mean
+            \item Variance (605.08): High value confirms substantial global disparities in breast cancer incidence
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
