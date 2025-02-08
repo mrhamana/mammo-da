@@ -8,6 +8,9 @@
 \usepackage{amssymb}
 \usepackage{lmodern}
 
+\usepackage{booktabs}
+\usepackage{longtable}
+
 \usepackage{listings}      % For code listings
 \usepackage{textcomp}  % Add before siunitx
 \usepackage{siunitx}       % For SI units formatting
@@ -38,28 +41,5 @@ Saugat Khatiwada}
 \input{skewness-kurtosis-analysis.tex}
 \input{moments-analysis.tex}
 \input{categorical-analysis.tex}
-
-\begin{frame}[fragile]
-  \frametitle{Limitations \& Future Scope}
-  \begin{alertblock}{Key Limitations}
-      \begin{itemize}
-          \item \textbf{Correlation \& Regression Analyses} not performed due to:
-          \begin{itemize}
-              \item Single numerical column (\texttt{ASR (World)}) in dataset
-              \item Lack of secondary numerical features (e.g. GDP, healthcare spending)
-          \end{itemize}
-          
-          \item \textbf{Hypothetical extensions} would require:
-          \begin{itemize}
-              \item Merging with external datasets (WHO, World Bank)
-              \item Additional numerical columns like:
-              \begin{itemize}
-                  \item Economic indicators (GDP per capita)
-                  \item Healthcare metrics (screening rates)
-                  \item Environmental factors
-              \end{itemize}
-          \end{itemize}
-      \end{itemize}
-  \end{alertblock}
-\end{frame}
+\input{analysis.tex}
 \end{document}

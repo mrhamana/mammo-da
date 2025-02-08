@@ -1,21 +1,12 @@
-\frametitle{Limitations \& Future Scope}
-  \begin{alertblock}{Key Limitations}
-      \begin{itemize}
-          \item \textbf{Correlation \& Regression Analyses} not performed due to:
-          \begin{itemize}
-              \item Single numerical column (\texttt{ASR (World)}) in dataset
-              \item Lack of secondary numerical features (e.g. GDP, healthcare spending)
-          \end{itemize}
+\frametitle{Mode for Categorical Data}
+    \begin{itemize}
+        \item \textbf{Mode:} The value(s) that appear most frequently in a dataset.
+        \item For categorical data, the mode represents the most common category or categories.
 
-          \item \textbf{Hypothetical extensions} would require:
-          \begin{itemize}
-              \item Merging with external datasets (WHO, World Bank)
-              \item Additional numerical columns like:
+        \item \textbf{Interpretation:}
               \begin{itemize}
-                  \item Economic indicators (GDP per capita)
-                  \item Healthcare metrics (screening rates)
-                  \item Environmental factors
+                  \item The mode cancer labels are the list of numerical values shown above.
+                  \item  This output suggests that in the 'Cancer label' column, each unique numerical value appears with the same highest frequency.
+                  \item This might indicate that the 'Cancer label' column, as extracted, does not contain typical categorical labels but rather unique numerical identifiers, or that there's an issue with data interpretation.
               \end{itemize}
-          \end{itemize}
-      \end{itemize}
-  \end{alertblock}
+    \end{itemize}
