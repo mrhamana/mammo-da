@@ -315,3 +315,8 @@ def chebyshev_inequality(k):
     if k <= 0:
         raise ValueError("k must be positive")
     return 1 / (k * k)
+
+def r_squared(x, y):
+    """Calculates the R-squared value."""
+    corr = correlation(x, y)
+    return corr**2
