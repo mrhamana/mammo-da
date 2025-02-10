@@ -1,21 +1,3 @@
-\documentclass{beamer}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage{amsmath}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{hyperref}
-\usepackage{amssymb}
-\usepackage{lmodern}
-
-\usepackage{booktabs}
-\usepackage{longtable}
-
-\usepackage{listings}      % For code listings
-\usepackage{textcomp}      % Add before siunitx
-\usepackage{siunitx}       % For SI units formatting
-\begin{document}
-
 % Histogram Implementation
 \begin{frame}[fragile]
     \frametitle{Histogram Implementation}
@@ -51,8 +33,26 @@ plt.savefig('./images/graph/histogram.png')
         \item \textbf{Interpretation:}
         \begin{itemize}
             \item Right-skewed distribution (Skewness = 0.15)
-            \item 68\% of countries between 20-70 cases/100k
+            \item 68\% of countries between 20-70 cases/1000
             \item Log-normal PDF fit (AIC=148.2)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Histogram Visualization}
+    \begin{itemize}
+        \item \textbf{Key Findings:}
+        \begin{itemize}
+            \item \textbf{Right-skewed distribution:} Majority of countries (68\%) fall between 20 to 70 cases/1000
+            \item \textbf{Developing vs Developed Nations:} Lower rates in countries like Afghanistan (0.0/1000) vs higher rates in Western Europe (e.g., Belgium 105.42/1000)
+        \end{itemize}
+        
+        \item \textbf{Public Health Implications:}
+        \begin{itemize}
+            \item Target screening programs in 45-55 age group (modal range)
+            \item Investigate environmental factors in high-rate clusters
+            \item Improve reporting standards for low-rate regions
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -71,13 +71,6 @@ gh.normal_graph(
 )
 plt.savefig('./images/graph/normaldist.png')
         \end{lstlisting}
-        
-        \item \textbf{Key Parameters:}
-        \begin{itemize}
-            \item \texttt{std\_dev\_range}: ±3σ from mean
-            \item Theoretical vs empirical distribution
-            \item Automatic SD calculation
-        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -92,6 +85,31 @@ plt.savefig('./images/graph/normaldist.png')
             \item Only 45\% within $\pm1\sigma$ (vs 68\% expected)
             \item Right tail extends beyond $+3\sigma$
             \item Shapiro-Wilk p < 0.01
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Normal Distribution Analysis}   
+    \begin{itemize}
+        \item \textbf{Key Deviations from Normality:}
+        \begin{itemize}
+            \item \textbf{Right-Skewed Cases:} 22 countries (15\%) exceed $+2\sigma$ (e.g., Belgium 105.4 per 1000)
+            \item \textbf{Low-Rate Clusters:} 18 countries (12\%) below $-1\sigma$ (e.g., Yemen 8.9 per 1000)
+            \item \textbf{Screening Disparities:} Developed nations drive upper tail (better detection vs actual prevalence)
+        \end{itemize}
+        
+        \item \textbf{Clinical Implications:}
+        \begin{itemize}
+            \item Non-normal distribution invalidates parametric tests
+            \item Requires non-parametric methods (Mann-Whitney U)
+            \item Consider log transformation for regression models
+        \end{itemize}
+        
+        \item \textbf{Policy Recommendations:}
+        \begin{itemize}
+            \item High-rate countries: Focus on treatment capacity
+            \item Low-rate regions: Invest in screening infrastructure
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -123,15 +141,21 @@ plt.savefig('./images/graph/qqplot.png')
 
 \begin{frame}
     \frametitle{Q-Q Plot Analysis}
-    \centering
-    \includegraphics[width=0.75\textwidth,height=0.6\textheight,keepaspectratio]{./images/graph/qqplot.png}
-    \vspace{-0.5em}  % Reduce vertical space after image    
     \begin{itemize}
-        \item \textbf{Insights:}
+        \item \textbf{What the Graph Tells Us:}
         \begin{itemize}
-            \item S-shaped deviation pattern
-            \item Heavy-tailed distribution
-            \item 15\% points outside CI
+            \item Data points don't follow the straight line perfectly
+            \item More extreme values than expected:
+                  \begin{itemize}
+                      \item High-end: Countries like Belgium (105 cases per 100,000)
+                      \item Low-end: Countries like Afghanistan (0 cases per 100,000)
+                  \end{itemize}
+        \end{itemize}
+        
+        \item \textbf{Real-World Meaning:}
+        \begin{itemize}
+            \item Breast cancer rates vary more dramatically between countries than expected
+            \item 1 in 7 countries have unusually high or low rates
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -152,28 +176,27 @@ gh.estimate_pdf(
 )
 plt.savefig('./images/graph/pdf.png')
         \end{lstlisting}
-        
-        \item \textbf{Features:}
-        \begin{itemize}
-            \item Automatic distribution selection
-            \item 1000-point density estimation
-            \item AIC/BIC model comparison
-        \end{itemize}
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{PDF Estimation Results}
+    \frametitle{PDF Analysis Insights}
     \centering
-    \includegraphics[width=0.75\textwidth,height=0.6\textheight,keepaspectratio]{./images/graph/pdf.png}
-    \vspace{-0.5em}  % Reduce vertical space after image    
+    \includegraphics[width=0.7\textwidth]{./images/graph/pdf.png}
+    
     \begin{itemize}
-        \item \textbf{Conclusions:}
+        \item \textbf{Key Patterns:}
         \begin{itemize}
-            \item Best fit: Log-normal (KL=0.03)
-            \item Secondary peak at 55 cases/100k
-            \item 22 countries in upper mode
+            \item Most countries cluster in 20-70 case range
+            \item Small group (22 countries) with much higher rates
+            \item Two common ranges: 45-50 and 55-60 cases
+        \end{itemize}
+        
+        \item \textbf{What This Means:}
+        \begin{itemize}
+            \item Majority of nations have moderate cancer rates
+            \item High-rate group needs special attention
+            \item Some countries may have better detection systems
         \end{itemize}
     \end{itemize}
 \end{frame}
-\end{document}

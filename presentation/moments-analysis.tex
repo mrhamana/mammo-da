@@ -25,10 +25,6 @@
                             \item $r$ = Order of the moment (e.g., 3 for 3rd moment, 4 for 4th moment)
                         \end{itemize}
               \end{itemize}
-
-        \item \textbf{Python Function:}
-              \begin{verbatim}
-              \end{verbatim}
     \end{itemize}
 \end{frame}
 
@@ -50,12 +46,29 @@ central_moments(4, asr_data)
 Central Moment (3rd order): 5830.607
 Central Moment (4th order): 949064.310
         \end{verbatim}
+    \end{itemize}
+\end{frame}
 
-        \item \textbf{Interpretation:}
-              \begin{itemize}
-                  \item \textbf{3rd Central Moment (Skewness):} A positive 3rd central moment (5830.607) indicates a right-skewed distribution, consistent with our skewness analysis.
-                  \item \textbf{4th Central Moment (Kurtosis):} The 4th central moment (949064.310), when used in kurtosis calculation, helps quantify the peakedness and tail weight of the distribution.
-              \end{itemize}
+\begin{frame}
+    \frametitle{Moments in Breast Cancer Data}
+    \begin{itemize}
+        \item \textbf{Key Findings:}
+        \begin{itemize}
+            \item More countries have higher-than-average rates (48 cases)
+            \item 22 countries with extreme values:
+                \begin{itemize}
+                    \item High: Belgium (105 cases), Netherlands (95 cases)
+                    \item Low: Afghanistan (0 cases), Yemen (5 cases)
+                \end{itemize}
+            \item Data clusters in two ranges: 20-50 and 50-70 cases
+        \end{itemize}
+        
+        \item \textbf{What This Means:}
+        \begin{itemize}
+            \item Most countries have moderate breast cancer rates
+            \item Extreme values skew global comparisons
+            \item Reporting differences may affect low-rate countries
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -90,10 +103,24 @@ asr_raw_moment_2 = raw_moments(2, asr_data)
               \begin{verbatim}
 Raw Moment (2nd order): 2885.890
         \end{verbatim}
+    \end{itemize}
+\end{frame}
 
-        \item \textbf{Interpretation:}
-              \begin{itemize}
-                  \item \textbf{2nd Raw Moment:} The 2nd raw moment (2885.890) provides information about the spread of the data from zero. It is related to the variance and standard deviation, but calculated about zero rather than the mean.
-              \end{itemize}
+\begin{frame}
+    \frametitle{Raw Moments Insights}
+    \begin{itemize}
+        \item \textbf{Key Findings:}
+        \begin{itemize}
+            \item Wide variation in rates from 0 to 105 cases
+            \item High-rate countries disproportionately affect totals
+            \item Example spread: Afghanistan (0) to Belgium (105)
+        \end{itemize}
+        
+        \item \textbf{What This Means:}
+        \begin{itemize}
+            \item Cancer rates vary dramatically between countries
+            \item A few countries account for most high cases
+            \item Global averages don't represent all nations equally
+        \end{itemize}
     \end{itemize}
 \end{frame}
