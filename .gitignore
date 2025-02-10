@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# virtual environment
+venv/
+
+# Environments
+.env
+.venv
+env/
+ENV/
+*.egg-info
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# OS or Editor files
+.DS_Store
+*.swp
+*.swo
+.vscode/
+
+# Latex files
+presentation.aux
+presentation.fdb_latexmk
+presentation.fls
+presentation.log
+presentation.nav
+presentation.out
+presentation.snm
+presentation.synctex.gz
+presentation.toc
+presentation.vrb

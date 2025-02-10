@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+
+\section*{Statistical Measures and Concepts}
+
+\subsection*{Descriptive Statistics}
+\begin{enumerate}
+    \item \textbf{Mean:} $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$
+    \item \textbf{Median:} Middle value (sorted)
+      \begin{itemize}
+       \item Odd: $(n+1)/2$
+       \item Even: Average of $n/2$ and $(n/2)+1$
+      \end{itemize}
+    \item \textbf{Mode:} Most frequent value
+    \item \textbf{Minimum/S:} $S = \min(x_1, x_2, ..., x_n)$
+    \item \textbf{Maximum/L:} $L = \max(x_1, x_2, ..., x_n)$
+    \item \textbf{Range:} $R = L - S$
+    \item \textbf{Coefficient of Range:} $\frac{L - S}{L + S}$
+    \item \textbf{MD Mean:} $\frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|$
+    \item \textbf{MD Median:} $\frac{1}{n} \sum_{i=1}^{n} |x_i - \text{median}|$
+    \item \textbf{Standard Deviation:} $s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2}$
+   \item \textbf{Variance:} $s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$
+    \item \textbf{Coefficient of SD:} $\frac{s}{\bar{x}}$
+   \item \textbf{CV:} $\frac{s}{\bar{x}} \times 100\%$
+    \item \textbf{IQR:} $Q_3 - Q_1$
+    \item \textbf{QD:} $\frac{Q_3 - Q_1}{2}$
+    \item \textbf{Midrange:} $\frac{L + S}{2}$
+      \item \textbf{Quartiles:} $Q_1, Q_2, Q_3$
+      \begin{itemize}
+         \item  Q1: 25th percentile
+         \item Q2: 50th percentile (median)
+         \item Q3: 75th percentile
+       \end{itemize}
+     \item \textbf{Deciles:} $D_1$ to $D_9$
+    \item \textbf{Percentiles:} $P_1$ to $P_{99}$
+\end{enumerate}
+
+\subsection*{Statistical Formulas}
+\begin{enumerate}
+  \item \textbf{Central Moments ($\mu_r$):} $\mu_r = \frac{1}{n} \sum_{i=1}^{n} (x_i - A)^r$
+  \item \textbf{Raw Moments ($\mu'_r$):} $\mu'_r = \frac{1}{n} \sum_{i=1}^{n} x_i^r$
+   \item \textbf{Coefficient of Skewness (Moments):} $\gamma_1 = \frac{\mu_3}{\mu_2^{3/2}}$
+    \item \textbf{Kurtosis (Percentiles):} $K = \frac{0.5(Q_3 - Q_1)}{P_{90} - P_{10}}$
+   \item \textbf{Excess Kurtosis (Moments):} $\gamma_2 = \frac{\mu_4}{\mu_2^2} - 3$
+     \item \textbf{Covariance:} $\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})$
+    \item \textbf{Pearson Skewness:} $\frac{\bar{x} - \text{Mode}}{s}$ or $\frac{3(\bar{x} - \text{Median})}{s}$
+    \item \textbf{Bowley Skewness:} $\frac{Q_3 + Q_1 - 2Q_2}{Q_3 - Q_1}$
+    \item \textbf{Correlation:} $r = \frac{\text{Cov}(X, Y)}{s_X s_Y}$
+    \item \textbf{Regression byx:} $b_{yx} = \frac{\text{Cov}(X,Y)}{\text{Var}(X)}$
+    \item \textbf{Regression bxy:} $b_{xy} = \frac{\text{Cov}(X,Y)}{\text{Var}(Y)}$
+       \item \textbf{Chebyshev's Inequality:} $P(|X-\mu| \geq k\sigma) \leq \frac{1}{k^2}$
+    \item \textbf{Normal PDF:} $f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x - \mu}{\sigma})^2}$
+\end{enumerate}
+
+\subsection*{Statistical Concepts and Tools}
+\begin{enumerate}
+    \item \textbf{PMF:} $P(X = x)$
+    \item \textbf{PDF:} $f(x)$
+    \item \textbf{CDF:} $F(x) = P(X \leq x)$
+    \item \textbf{Expected Value:} $E(X) = \sum xP(x)$ or $E(X) = \int xf(x)dx$
+    \item \textbf{Variance:} $Var(X) = E[(X - E(X))^2]$
+      \item  \textbf{R-squared:} $R^2 = \frac{\text{Explained Variance}}{\text{Total Variance}}$
+  \end{enumerate}
+
+
+\subsection*{Inferential Statistics}
+\begin{enumerate}
+    \item  \textbf{Regression Analysis} (Implicit - Use of Regressions)
+\end{enumerate}
+
+\subsection*{Visualization tools:}
+\begin{enumerate}
+  \item \textbf{Histogram}
+  \item \textbf{Boxplots}
+  \item \textbf{Bargraphs}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{lmodern}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{listings}      % For code listings
+\usepackage{textcomp}  % Add before siunitx
+\usepackage{siunitx}       % For SI units formatting
+\sisetup{
+  per-mode = symbol,
+  group-separator = {,},
+  group-minimum-digits = 4,
+  inter-unit-product = \ensuremath{{}\cdot{}},
+  number-unit-product = \,
+}
+\DeclareSIUnit{\perthousand}{\ensuremath{\text{\textperthousand}}}
+
+\usetheme{default}
+\usefonttheme{professionalfonts}
+
+\title{Breast Cancer Analysis}
+\author{Aman Sapkota \\
+Shiva Sagar Yadav \\
+Namit Adhikari \\
+Saugat Khatiwada}
+\date{Submitted On: Feb 7, 2025}
+
+\begin{document}
+
+\input{introduction.tex}
+\input{descriptive-statistics.tex}
+\input{distribution-visualization.tex}
+\input{skewness-kurtosis-analysis.tex}
+\input{moments-analysis.tex}
+\input{categorical-analysis.tex}
+\input{analysis.tex}
+\end{document}

@@ -1,0 +1,258 @@
+\begin{frame}[fragile]
+    \frametitle{Mean Formula and Implementation}
+    \begin{itemize}
+        \item \textbf{Formula:}
+              \[
+                  \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+              \]
+              \begin{itemize}
+                  \item Where:
+                        \begin{itemize}
+                            \item $\bar{x}$ = Sample mean
+                            \item $n$ = Number of observations (\texttt{len(x)})
+                            \item $x_i$ = Individual data values (\texttt{x} array)
+                        \end{itemize}
+              \end{itemize}
+
+        \item \textbf{Python Function:}
+              \begin{lstlisting}[language=Python, breaklines=true]
+                def mean(x):
+                return sum(x) / len(x)
+            \end{lstlisting}
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+                asr_mean = mean(asr_data)  
+                # Returns 47.79
+            \end{lstlisting}
+
+        \item \textbf{Interpretation:} The average breast cancer incidence rate across 185 countries is 47.79 cases per 100,000 people, indicating a global benchmark for comparison.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Median Formula and Implementation}
+    \begin{itemize}
+        \item \textbf{Median:} Middle value (sorted)
+              \begin{itemize}
+                  \item Odd: $(n+1)/2$
+                  \item Even: Average of $n/2$ and $(n/2)+1$
+              \end{itemize}
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+                asr_median = median(asr_data)  # Returns 45.44
+            \end{lstlisting}
+
+        \item \textbf{Interpretation:} 50\% of countries have rates below 45.44 cases/100k. The median < mean suggests higher rates in some countries skew the distribution.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Mode Analysis and Implementation}
+    \begin{itemize}
+        \item \textbf{Formula:}
+              \[
+                  \text{Mode} = \arg\max_{x} \text{Frequency}(x)
+              \]
+              \begin{itemize}
+                  \item Where $\text{Frequency}(x)$ = Count of occurrences for value $x$
+              \end{itemize}
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+                asr_mode = mode(asr_data)  
+                # Returns [45.4, 55.6]
+            \end{lstlisting}
+
+        \item \textbf{Interpretation:}
+              \begin{itemize}
+                  \item Bimodal distribution with peaks at \SI{45.4}{per 100,000} and \SI{55.6}{per 100,000}
+                  \item Suggests two common incidence patterns:
+                        \begin{itemize}
+                            \item Lower mode (45.4): Developing nations with limited screening
+                            \item Higher mode (55.6): Developed countries with aging populations
+                        \end{itemize}
+                  \item Regional clustering observed in Western Europe (55-60 range) and South Asia (40-45 range)
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Standard Deviation \& Variance: Formulas}
+    \begin{itemize}
+        \item \textbf{Standard Deviation Formula:}
+              \[
+                  s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2}
+              \]
+
+        \item \textbf{Variance Formula:}
+              \[
+                  s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2
+              \]
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+     asr_standard_deviation = 
+     standard_deviation(asr_data)  
+     # 24.60
+     asr_varianasr_standard_deviation**2  
+     # 605.08
+                    \end{lstlisting}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \item \textbf{Interpretation:}
+    \begin{itemize}
+        \item Standard Deviation (\SI{24.60}{\perthousand}): Countries' rates typically deviate ±24.6 from the mean
+        \item Variance (605.08): High value confirms substantial global disparities in breast cancer incidence
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Interquartile Range (IQR)}
+    \begin{itemize}
+        \item \textbf{Formula:}
+              \[
+                  \text{IQR} = Q_3 - Q_1
+              \]
+              \begin{itemize}
+                  \item Where:
+                        \begin{itemize}
+                            \item $Q_1$ = 25th percentile
+                            \item $Q_3$ = 75th percentile
+                        \end{itemize}
+              \end{itemize}
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+    asr_iqr = iqr(asr_data)  # Returns 33.37
+                        \end{lstlisting}
+
+        \item \textbf{Interpretation:} Middle 50\% of countries have rates within \SI{33.37}{\perthousand} range (Q1=\SI{14.31}{\perthousand} to Q3=\SI{47.68}{\perthousand}), showing concentrated variation in mid-range values.
+    \end{itemize}
+\end{frame}
+
+% Minimum and Maximum
+\begin{frame}[fragile]
+    \frametitle{Minimum \& Maximum Values}
+    \begin{itemize}
+        \item \textbf{Formulas:}
+              \[
+                  S = \min(x_i),\quad L = \max(x_i)
+              \]
+
+        \item \textbf{Python Functions:}
+              \begin{lstlisting}[language=Python, breaklines=true]
+    def smallest(x):
+    return min(x)
+    
+    def largest(x):
+    return max(x)
+                            \end{lstlisting}
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+    asr_smallest = s(asr_data)  # 0.0
+    asr_largest = (asr_data)    # 105.42
+                            \end{lstlisting}
+
+        \item \textbf{Interpretation:} The extreme range (\SI{0.0}{\perthousand} to \SI{105.42}{\perthousand}) highlights vast disparities, with some countries showing no reported cases while others have very high incidence rates.
+    \end{itemize}
+\end{frame}
+
+% Range and Coefficient of Range
+\begin{frame}[fragile]
+    \frametitle{Range Measures}
+    \begin{itemize}
+        \item \textbf{Formulas:}
+              \[
+                  R = L - S,\quad \text{Coeff. Range} = \frac{L - S}{L + S}
+              \]
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+    asr_range =- 0.0  # 105.42
+    asr_coff_coff_range(0.0)  # 1.0
+                                \end{lstlisting}
+
+        \item \textbf{Interpretation:} Maximum possible range value (1.0) indicates perfect dissimilarity between extreme values, emphasizing significant global disparities in healthcare access and reporting quality.
+    \end{itemize}
+\end{frame}
+
+% Mean Deviation
+\begin{frame}[fragile]
+    \frametitle{Mean Absolute Deviation}
+    \begin{itemize}
+        \item \textbf{Formula:}
+              \[
+                  \text{MD} = \frac{1}{n} \sum_{i=1}^n |x_i - \bar{x}|
+              \]
+
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+    asr_mean_dev = mean_dev(asr_data)  # 19.89
+                                    \end{lstlisting}
+
+        \item \textbf{Interpretation:} Average deviation of \SI{19.89}{\perthousand} from the mean indicates substantial variability in country-level rates, even when ignoring outlier effects.
+    \end{itemize}
+\end{frame}
+
+% Coefficient of Variation
+\begin{frame}[fragile]
+    \frametitle{Variation Measures}
+    \begin{itemize}
+        \item \textbf{Formulas:}
+              \[
+                  \text{Coeff. SD} = \frac{s}{\bar{x}},\quad CV = \frac{s}{\bar{x}} \times 100\%
+              \]
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+    asr_coefficient_sd = 0.5147
+    asr_coefficient_variation = 51.47
+                                        \end{lstlisting}
+
+        \item \textbf{Interpretation:} CV of 51.47\% indicates high relative variability, suggesting breast cancer rates are influenced by multiple factors (screening practices, genetics, environment).
+    \end{itemize}
+\end{frame}
+
+% Quartile Deviation and Midrange
+\begin{frame}[fragile]
+    \frametitle{Spread Measures}
+    \begin{itemize}
+        \item \textbf{Formulas:}
+              \[
+                  \text{QD} = \frac{IQR}{2},\quad \text{Midrange} = \frac{L + S}{2}
+              \]
+
+        \item \textbf{Implementation:}
+              \begin{lstlisting}
+    asr_quartile_deviation = 16.69
+    asr_midrange = 52.71
+            \end{lstlisting}
+
+        \item \textbf{Interpretation:} Midrange (\SI{52.71}{\perthousand}) closer to mean than median confirms right skew, while QD shows middle 50\% of data spreads ±16.69 around median.
+    \end{itemize}
+\end{frame}
+
+% Percentiles and Quartiles
+\begin{frame}[fragile]
+    \frametitle{Distribution Position Measures}
+    \begin{itemize}
+        \item \textbf{Formula (Percentile):}
+              \[
+                  P_k = x_{(\frac{k}{100} \times (n + 1))}
+              \]
+
+        \item \textbf{Findings:}
+              \begin{itemize}
+    \item Q1: \SI{14.31}{\perthousand}, Q3: \SI{47.68}{\perthousand}
+    \item P90: \SI{84.72}{\perthousand}, P99: \SI{104.45}{\perthousand}
+              \end{itemize}
+
+        \item \textbf{Interpretation:} 90th percentile value nearly doubles the median, indicating top 10\% of countries have disproportionately high breast cancer rates.
+    \end{itemize}
+\end{frame}

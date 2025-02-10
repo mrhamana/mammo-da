@@ -1,0 +1,99 @@
+\begin{frame}
+    \frametitle{Moments Analysis}
+    \begin{itemize}
+        \item Moments are statistical measures that describe the shape of a distribution.
+        \item Central moments describe the distribution's shape around its mean.
+        \item Raw moments are moments about zero.
+        \item We will analyze the 3rd and 4th central moments, and the 2nd raw moment for the 'ASR (World) per 100 000' data.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Central Moments: Formula}
+    \begin{itemize}
+        \item \textbf{Formula:}
+              \[
+                  \mu_r = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^r
+              \]
+              \begin{itemize}
+                  \item Where:
+                        \begin{itemize}
+                            \item $\mu_r$ = r-th central moment
+                            \item $n$ = Number of observations
+                            \item $x_i$ = Individual data values
+                            \item $\bar{x}$ = Sample mean
+                            \item $r$ = Order of the moment (e.g., 3 for 3rd moment, 4 for 4th moment)
+                        \end{itemize}
+              \end{itemize}
+
+        \item \textbf{Python Function:}
+              \begin{verbatim}
+              \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Central Moments: Implementation and Interpretation}
+    \begin{itemize}
+        \item \textbf{Implementation \& Output (from moments-analysis.ipynb):}
+              \begin{lstlisting}
+asr_central_moment_3 =
+central_moments(3, asr_data)
+# Returns 5830.607
+
+asr_central_moment_4 =
+central_moments(4, asr_data)
+# Returns 949064.310
+        \end{lstlisting}
+              \textbf{Output:}
+              \begin{verbatim}
+Central Moment (3rd order): 5830.607
+Central Moment (4th order): 949064.310
+        \end{verbatim}
+
+        \item \textbf{Interpretation:}
+              \begin{itemize}
+                  \item \textbf{3rd Central Moment (Skewness):} A positive 3rd central moment (5830.607) indicates a right-skewed distribution, consistent with our skewness analysis.
+                  \item \textbf{4th Central Moment (Kurtosis):} The 4th central moment (949064.310), when used in kurtosis calculation, helps quantify the peakedness and tail weight of the distribution.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Raw Moments: Formula}
+    \begin{itemize}
+        \item \textbf{Formula:}
+              \[
+                  \mu'_r = \frac{1}{n} \sum_{i=1}^{n} x_i^r
+              \]
+              \begin{itemize}
+                  \item Where:
+                        \begin{itemize}
+                            \item $\mu'_r$ = r-th raw moment
+                            \item $n$ = Number of observations
+                            \item $x_i$ = Individual data values
+                            \item $r$ = Order of the moment (e.g., 2 for 2nd moment)
+                        \end{itemize}
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Raw Moments: Implementation \& Interpretation}
+    \begin{itemize}
+        \item \textbf{Implementation \& Output (from moments-analysis.ipynb):}
+              \begin{lstlisting}
+asr_raw_moment_2 = raw_moments(2, asr_data) 
+# Returns 2885.890
+        \end{lstlisting}
+              \textbf{Output:}
+              \begin{verbatim}
+Raw Moment (2nd order): 2885.890
+        \end{verbatim}
+
+        \item \textbf{Interpretation:}
+              \begin{itemize}
+                  \item \textbf{2nd Raw Moment:} The 2nd raw moment (2885.890) provides information about the spread of the data from zero. It is related to the variance and standard deviation, but calculated about zero rather than the mean.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
